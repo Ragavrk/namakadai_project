@@ -35,6 +35,6 @@ CREATE TABLE Sales (
 
 SELECT * from Purchase;
 
-SELECT * from SSales
+SELECT * from Sales
 
 Drop TABLE item_id;
