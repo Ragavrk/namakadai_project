@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+h1 {
+  color: #333;
+}
+
+h2 {
+  color: #666;
+  margin-top: 20px;
+}
+
+p {
+  color: #444;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+form {
+  margin-top: 10px;
+}
+
+select, input, button {
+  margin: 5px;
+}
