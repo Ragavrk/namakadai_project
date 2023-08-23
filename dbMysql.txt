@@ -1,0 +1,40 @@
+CREATE DATABASE Arele:
+USE Arele;
+CREATE TABLE Company (
+    compan_id INT AUTO_INCREMENT PRIMARY KEY,
+    company_name VARCHAR(255),
+    cash_balance DECIMAL(10, 2)
+);
+CREATE TABLE Item (
+    item_id INT AUTO_INCREMENT PRIMARY KEY,
+    item_name VARCHAR(255)
+);
+
+CREATE TABLE Purchase (
+    purchase_id INT AUTO_INCREMENT PRIMARY KEY,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+    item_id INT,
+    qty INT,
+    rate DECIMAL(10, 2),
+    amount DECIMAL(10, 2),
+    FOREIGN KEY (item_id) REFERENCES Item(item_id)
+);
+
+
+CREATE TABLE Sales (
+    sales_id INT AUTO_INCREMENT PRIMARY KEY,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    item_id INT,
+    qty INT,
+    rate DECIMAL(10, 2),
+    amount DECIMAL(10, 2),
+    FOREIGN KEY (item_id) REFERENCES Item(item_id)
+);
+
+
+
+SELECT * from Purchase;
+
+SELECT * from SSales
+
+Drop TABLE item_id;
