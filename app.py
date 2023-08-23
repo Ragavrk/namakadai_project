@@ -13,7 +13,7 @@ mysql = MySQL(app)
 # Initial cash balance
 cash_balance = 1000
 
-# Dictionary to store item information
+
 items = {
     'pen': {'name': 'Pen', 'price': 5},
     'pencil': {'name': 'Pencil', 'price': 2},
