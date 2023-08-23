@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kavi Artisan Essence </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kavi Artisan Essence</h1>
+    
+    <p>Cash Balance: Rs.{{ cash_balance }}</p>
+
+    <h2>Add Purchase</h2>
+    <form method="POST" action="/purchase">
+        <select name="item">
+            {% for key, item in items.items() %}
+                <option value="{{ key }}">{{ item['name'] }}</option>
+            {% endfor %}
+        </select>
+        <input type="number" name="quantity" placeholder="Quantity" min="1" required>
+        <button type="submit">Purchase</button>
+    </form>
+
+    <h2>Add Sale</h2>
+    <form method="POST" action="/sale">
+        <select name="item">
+            {% for key, item in items.items() %}
+                <option value="{{ key }}">{{ item['name'] }}</option>
+            {% endfor %}
+        </select>
+        <input type="number" name="quantity" placeholder="Quantity" min="1" required>
+        <button type="submit">Sale</button>
+    </form>
+
+
+    <h2>Sales Data:</h2>
+    <table>
+        <tr>
+            <th>Sales ID</th>
+            <th>Timestamp</th>
+            <th>Qty</th>
+            <th>Rate</th>
+            <th>Amount</th>
+        </tr>
+        {% for sale in sales_data %}
+            <tr>
+                <td>{{ sale[0] }}</td>
+                <td>{{ sale[1] }}</td>
+                <td>{{ sale[3] }}</td>
+                <td>₹{{ sale[4] }}</td>
+                <td>₹{{ sale[5] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Purchase Data:</h2>
+    <table>
+        <tr>
+            <th>Purchase ID</th>
+            <th>Timestamp</th>
+            <th>Qty</th>
+            <th>Rate</th>
+            <th>Amount</th>
+        </tr>
+        {% for purchase in purchase_data %}
+            <tr>
+                <td>{{ purchase[0] }}</td>
+                <td>{{ purchase[1] }}</td>
+                <td>{{ purchase[3] }}</td>
+                <td>₹{{ purchase[4] }}</td>
+                <td>₹{{ purchase[5] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
