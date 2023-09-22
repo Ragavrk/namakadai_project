@@ -10,7 +10,7 @@ app.config['MYSQL_PASSWORD'] = 'Rithik@123'
 app.config['MYSQL_DB'] = 'Arele'
 
 mysql = MySQL(app)
-# Initial cash balance
+
 cash_balance = 1000
 
 
